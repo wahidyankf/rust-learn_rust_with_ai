@@ -1,6 +1,9 @@
 mod ch01_ownership;
 mod ch02_borrowing;
 
+#[cfg(test)]
+mod tests;
+
 fn main() {
     let args: Vec<String> = std::env::args().collect();
     match args.get(1).map(|s| s.as_str()) {
