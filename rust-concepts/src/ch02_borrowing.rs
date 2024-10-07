@@ -32,18 +32,16 @@ pub fn demo() {
     println!("Reference: {}", reference_to_nothing);
 }
 
-// This function borrows a string slice and returns its length
-fn calculate_length(s: &String) -> usize {
+// Make these functions public
+pub fn calculate_length(s: &String) -> usize {
     s.len()
 }
 
-// This function takes a mutable reference and modifies the string
-fn change(some_string: &mut String) {
+pub fn change(some_string: &mut String) {
     some_string.push_str(", world");
 }
 
-// This function demonstrates how to avoid dangling references
-fn no_dangle() -> String {
+pub fn no_dangle() -> String {
     let s = String::from("hello");
-    s // Ownership is moved out
+    s
 }

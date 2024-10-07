@@ -58,12 +58,12 @@ fn makes_copy(some_integer: i32) {
 } // Here, some_integer goes out of scope, but nothing special happens because it's a Copy type
 
 // This function will move its return value into the function that calls it
-fn gives_ownership() -> String {
+pub fn gives_ownership() -> String {
     let some_string = String::from("yours");
     some_string // This value is moved out to the calling function
 }
 
 // This function takes a String and returns one
-fn takes_and_gives_back(a_string: String) -> String {
+pub fn takes_and_gives_back(a_string: String) -> String {
     a_string // This value is returned and moves out to the calling function
 }

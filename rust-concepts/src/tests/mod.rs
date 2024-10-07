@@ -1,21 +1,5 @@
-use crate::ch01_ownership;
-use crate::ch02_borrowing;
+mod ch01_ownership_tests;
+mod ch02_borrowing_tests;
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_ch01_ownership() {
-        // This test will call the demo function and ensure it doesn't panic
-        ch01_ownership::demo();
-    }
-
-    #[test]
-    fn test_ch02_borrowing() {
-        // This test will call the demo function and ensure it doesn't panic
-        ch02_borrowing::demo();
-    }
-
-    // Add more specific tests here as needed
-}
+// If you want to keep the existing tests here, you can,
+// or you can move them all to their respective files.
