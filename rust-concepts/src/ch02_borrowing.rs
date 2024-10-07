@@ -7,6 +7,7 @@ pub fn demo() {
     let s1 = String::from("hello");
     let len = calculate_length(&s1);
     println!("The length of '{}' is {}.", s1, len);
+    // Result: The length of 'hello' is 5.
     // Note that s1 is still valid here because we only borrowed it immutably
 
     // Example 2: Mutable references
@@ -14,6 +15,7 @@ pub fn demo() {
     let mut s = String::from("hello");
     change(&mut s);
     println!("After change: {}", s);
+    // Result: After change: hello, world
     // The change is reflected in the original variable because we used a mutable reference
 
     // Example 3: Multiple immutable references
@@ -22,6 +24,7 @@ pub fn demo() {
     let r1 = &s2;
     let r2 = &s2;
     println!("r1: {}, r2: {}", r1, r2);
+    // Result: r1: hello, r2: hello
     // Both r1 and r2 are valid here because they're immutable references
 
     // Example 4: Mutable and immutable references (not simultaneously)
@@ -31,15 +34,18 @@ pub fn demo() {
     {
         let r1 = &s3; // immutable borrow
         println!("r1: {}", r1);
+        // Result: r1: hello
     } // r1 goes out of scope here, so we can make a new reference
     let r2 = &mut s3; // mutable borrow
     println!("r2: {}", r2);
+    // Result: r2: hello
     // This is valid because the immutable borrow (r1) and the mutable borrow (r2) don't overlap
 
     // Example 5: Preventing dangling references
     // Rust's borrow checker ensures we don't create dangling references
     let reference_to_nothing = no_dangle();
     println!("Reference: {}", reference_to_nothing);
+    // Result: Reference: hello
     // This function returns a String, not a reference, avoiding a potential dangling reference
 
     // Example 6: Lifetime annotations
@@ -48,6 +54,7 @@ pub fn demo() {
     let y = String::from("10");
     let result = longest(&x, &y);
     println!("Longest string: {}", result);
+    // Result: Longest string: 10
 
     // Example 7: Borrowing in loops
     let mut vec = vec![1, 2, 3, 4, 5];
@@ -55,6 +62,7 @@ pub fn demo() {
         *i *= 2;
     }
     println!("Doubled vector: {:?}", vec);
+    // Result: Doubled vector: [2, 4, 6, 8, 10]
 
     // Example 8: Self-referential structs (advanced topic)
     println!("Self-referential structs are an advanced topic in Rust.");
