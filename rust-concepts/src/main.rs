@@ -1,6 +1,7 @@
 mod ch01_ownership;
 mod ch02_borrowing;
 mod ch03_lifetime;
+mod ch04_pattern_matching;
 
 #[cfg(test)]
 mod tests;
@@ -23,11 +24,17 @@ fn main() {
             println!("--------------");
             ch03_lifetime::demo();
         }
+        Some("04" | "ch04" | "pattern_matching") => {
+            println!("Demonstrating Rust pattern matching!");
+            println!("--------------");
+            ch04_pattern_matching::demo();
+        }
         _ => {
             println!("Please specify a module to run. Examples:");
             println!("cargo run -- 01 (or ch01, or ownership)");
             println!("cargo run -- 02 (or ch02, or borrowing)");
             println!("cargo run -- 03 (or ch03, or lifetime)");
+            println!("cargo run -- 04 (or ch04, or pattern_matching)");
         }
     }
 }
